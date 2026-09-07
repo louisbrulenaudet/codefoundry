@@ -1,0 +1,34 @@
+{
+  "$schema": "./node_modules/turbo/schema.json",
+  "futureFlags": {
+    "affectedUsingTaskInputs": true,
+    "filterUsingTasks": true,
+    "watchUsingTaskInputs": true,
+    "strictTaskEntrypointSelection": true,
+    "longerSignatureKey": true,
+    "globalConfiguration": true
+  },
+  "global": {
+    "ui": "tui",
+    "envMode": "strict",
+    "cacheMaxAge": "7d",
+    "cacheMaxSize": "10GB",
+    "remoteCache": { "enabled": true, "signature": true },
+    "inputs": ["pnpm-workspace.yaml"],
+    "passThroughEnv": [
+      "CI",
+      "NODE_ENV",
+      "NODE_COMPILE_CACHE",
+      "NODE_DISABLE_COMPILE_CACHE",
+      "WRANGLER_SEND_METRICS"
+    ]
+  },
+  "tasks": {
+    "//#lint": {
+      "description": "Whole-repo oxlint pass at repo-root CWD.",
+      "cache": false
+    },
+    "check-types": { "dependsOn": ["transit"], "inputs": ["$TURBO_DEFAULT$"] },
+    "transit": { "dependsOn": ["^transit"] }
+  }
+}

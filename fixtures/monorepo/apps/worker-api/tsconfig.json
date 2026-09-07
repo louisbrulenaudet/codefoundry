@@ -1,0 +1,5 @@
+{
+  "extends": "@codefoundry/tooling-config/typescript/workers.json",
+  "compilerOptions": { "types": ["./worker-configuration.d.ts"] },
+  "include": ["worker-configuration.d.ts", "src/**/*.ts"]
+}

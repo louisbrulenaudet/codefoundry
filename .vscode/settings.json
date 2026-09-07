@@ -1,0 +1,16 @@
+{
+  "cSpell.words": [
+    "cloudflare",
+    "codefoundry",
+    "nodenext",
+    "tsgolint",
+    "unstub"
+  ],
+  "js/ts.implicitProjectConfig.checkJs": false,
+  "files.exclude": {
+    "lib": true
+  },
+  "search.exclude": {
+    "lib": true
+  }
+}

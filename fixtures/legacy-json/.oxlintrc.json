@@ -1,0 +1,4 @@
+{
+  "plugins": ["eslint", "typescript"],
+  "rules": { "no-unused-vars": "error" }
+}

@@ -1,0 +1,65 @@
+import type { RcFile } from "syncpack";
+
+export const syncpack: RcFile = {
+  versionGroups: [
+    {
+      label: "Internal packages are linked with workspace:*",
+      dependencies: ["$LOCAL"],
+      pinVersion: "workspace:*",
+    },
+    {
+      label: "Third-party dependencies come from the pnpm catalog",
+      dependencyTypes: ["prod", "dev"],
+      dependencies: ["**"],
+      policy: "catalog",
+      severity: {
+        NotUsingCatalog: "error",
+        MissingFromCatalog: "error",
+      },
+    },
+  ],
+  sortFirst: [
+    "name",
+    "description",
+    "version",
+    "private",
+    "type",
+    "license",
+    "author",
+    "homepage",
+    "repository",
+    "bugs",
+    "keywords",
+    "sideEffects",
+    "publishConfig",
+    "packageManager",
+    "engines",
+    "bin",
+    "files",
+    "exports",
+    "imports",
+    "main",
+    "types",
+    "scripts",
+    "dependencies",
+    "peerDependencies",
+    "peerDependenciesMeta",
+    "optionalDependencies",
+    "devDependencies",
+  ],
+  sortAz: [
+    "dependencies",
+    "devDependencies",
+    "peerDependencies",
+    "peerDependenciesMeta",
+    "optionalDependencies",
+    "scripts",
+    "keywords",
+  ],
+  sortPackages: true,
+  formatBugs: true,
+  formatRepository: true,
+  indent: "  ",
+};
+
+export default syncpack;
